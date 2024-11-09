@@ -4,7 +4,7 @@
 
 void main(){
 
-	int locctr, straddr = 0, prglen;
+	int locctr, straddr = 0;
 	char label[10], opcode[10], operand[10], mnemonic[10], code[10];
 	FILE *fp1 = fopen("input.txt", "r");
 	FILE *fp2 = fopen("optab.txt", "r");
