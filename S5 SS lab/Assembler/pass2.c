@@ -20,7 +20,7 @@ void main(){
 	fprintf(fp6, "%s%s%s%s", locctr, label, opcode, operand);
 	
 	if(strcmp(opcode, "START") == 0){
-		fprintf(fp4, "S^%s^00%s^0000%s\n", label, operand, prglen);
+		fprintf(fp4, "H^%s^00%s^0000%s\n", label, operand, prglen);
 		straddr = atoi(locctr);
 	}
 	
