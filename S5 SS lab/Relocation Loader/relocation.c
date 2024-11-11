@@ -67,7 +67,7 @@ void main(){
 	printf("ENTER THE STARTING ADDRESS OF THE PROGRAM\n");
 	scanf("%X",&start);
 	addr=start;
-	objptr=fopen("objcode.txt","r");
+	objptr=fopen("program.txt","r");
         fscanf(objptr,"%s",rec);
        
        if(strcmp(rec,"H")==0){
@@ -109,6 +109,7 @@ void main(){
 			first[2]='\0';
 			second[4]='\0';
 			modif_obj_code=strtol(second,NULL,16);
+			//modif_obj_code=atoi(second);
 			modif_obj_code+=start;
 			printf("%X\t%s%X\n",add,first,modif_obj_code);				
 		}
