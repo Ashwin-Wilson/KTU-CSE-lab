@@ -52,15 +52,11 @@ void main(){
 			if(i != -1){ // if symbol found
 				if(st[i].saddr[0] == '*'){ // if symbol address is null
 					
-					//sprintf(trec + (atoi(strcpy(st[i].saddr, st[i].saddr + 1)) + strlen(trec)), "%d", locctr);
-					
 					for(int j=(atoi(strcpy(st[i].saddr, st[i].saddr + 1)) + 3), k=0; k<4; k++, j--){ // rewritting the symbol address to objcode.
 						trec[j] = (tlocctr % 10) + '0';
 						tlocctr /= 10;
 					}
-					
 					sprintf(st[i].saddr, "%d", locctr);
-					//printf("\n%s", trec);
 				}
 			}else{ // if symbol not found
 				strcpy(st[slen].symbol, label);
