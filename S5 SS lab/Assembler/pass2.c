@@ -17,7 +17,7 @@ void main(){
 	fscanf(fp5, "%s", prglen);
 	
 	fscanf(fp1, "%s%s%s%s", locctr, label, opcode, operand);
-	fprintf(fp6, "%s%s%s%s", locctr, label, opcode, operand);
+	fprintf(fp6, "%s\t%s\t%s\t%s", locctr, label, opcode, operand);
 	
 	if(strcmp(opcode, "START") == 0){
 		fprintf(fp4, "H^%s^00%s^0000%s\n", label, operand, prglen);
@@ -32,6 +32,7 @@ void main(){
 		 	fscanf(fp3, "%s%s", mnemonic, code);
 		 	if(strcmp(mnemonic, opcode) == 0){
 				sprintf(trec + strlen(trec), "^%s", code);
+				fprintf(fp6, "\n%s\t%s\t%s\t%s\t%s", locctr, label, opcode, operand, code);
 				tlen += 6;
 		 		break;
 		 	}
@@ -42,6 +43,7 @@ void main(){
 		 	fscanf(fp2, "%s%s", symbol, saddr);
 		 	if(strcmp(symbol, operand) == 0){
 		 		sprintf(trec + strlen(trec), "%s", saddr);
+		 		fprintf(fp6, "%s", saddr);
 		 		break;
 		 	}
 		 	
@@ -50,6 +52,7 @@ void main(){
 		 
 		 if(strcmp(opcode, "WORD") == 0){
 			sprintf(trec + strlen(trec), "^%06X", atoi(operand));
+			fprintf(fp6, "\n%s\t%s\t%s\t%s\t%06X", locctr, label, opcode, operand,  atoi(operand));
 			tlen += 6;	
 				
 		 }
@@ -57,8 +60,10 @@ void main(){
 		 else if(strcmp(opcode, "BYTE") == 0){
 		 	int i = 2;
 			sprintf(trec + strlen(trec), "^");
+			fprintf(fp6, "\n%s\t%s\t%s\t%s\t", locctr, label, opcode, operand);
 			while(operand[i+1] != '\0'){
 				sprintf(trec + strlen(trec), "%X", operand[i]);
+				fprintf(fp6, "%X", operand[i]);
 				i++;
 				tlen++;
 			}
