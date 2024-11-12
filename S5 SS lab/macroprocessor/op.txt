@@ -4,4 +4,4 @@ SAMPLE	START	1000
 -	STA	?
 N1	RESW	1
 N2	RESW	1
--	END	-
+**	END	**

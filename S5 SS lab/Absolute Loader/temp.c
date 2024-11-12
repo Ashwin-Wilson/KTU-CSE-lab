@@ -23,12 +23,11 @@ void main(){
 			start[j] = line[i];
 		}
 		straddr = atoi(start);
-		printf("\n%s", line);
 		while(line[0] == 'T'){
 			i = 12;
 			while(line[i] != '\0'){
 				if(line[i] != '^'){
-					printf("\n%d\t%c%c", straddr, line[i], line[i+1]);
+					printf("%d\t%c%c\n", straddr, line[i], line[i+1]);
 					i = i+ 2;
 					straddr++;
 				}else{
@@ -44,8 +43,4 @@ void main(){
 	}else{
 		printf("\nInvalid program name!");
 	}
-	
-	
-	
 }
-
