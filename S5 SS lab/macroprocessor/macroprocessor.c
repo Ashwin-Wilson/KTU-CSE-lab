@@ -22,13 +22,12 @@ void main(){
 			rewind(namtab);
 			fprintf(deftab, "%s\t%s\n", label, operand);
 			int i=1;
-			char op[10];
+
 			fscanf(input, "%s%s%s", label, opcode, operand);
 			
 			while(strcmp(opcode, "MEND") != 0){
 				
-				sprintf(op,"?%d", i++);
-				fprintf(deftab, "%s\t%s\n", opcode, op);
+				fprintf(deftab, "%s\t?%d\n", opcode, i++);
 				fscanf(input, "%s%s%s", label, opcode, operand);
 			}
 			fprintf(deftab, "%s\n", opcode);
