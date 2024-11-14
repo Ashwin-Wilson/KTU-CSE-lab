@@ -34,7 +34,7 @@ void main(){
 
 	if(strcmp(opcode , "START") == 0){
 		sprintf(hrec , "H^%s^00%s", label, operand);
-		straddr = atoi(operand);
+		straddr = strtol(operand);
 		locctr = straddr;
 		
 	}else{
