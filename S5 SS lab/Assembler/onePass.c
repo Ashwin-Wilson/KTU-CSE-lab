@@ -34,7 +34,7 @@ void main(){
 
 	if(strcmp(opcode , "START") == 0){
 		sprintf(hrec , "H^%s^00%s", label, operand);
-		straddr = strtol(operand);
+		straddr = strtol(operand, NULL, 16);
 		locctr = straddr;
 		
 	}else{
@@ -123,8 +123,8 @@ void main(){
 	tlen /= 10;
 	trec[9] = (tlen % 10) + '0';
 	
-	sprintf(hrec + strlen(hrec), "^%d", (locctr - straddr));
-	fprintf(fp5, "%s\n%s\nE^%06d\n", hrec, trec, straddr);
+	sprintf(hrec + strlen(hrec), "^%X", (locctr - straddr));
+	fprintf(fp5, "%s\n%s\nE^%06X\n", hrec, trec, straddr);
 	
 	
 	for(int k=0; k<slen;k++){
