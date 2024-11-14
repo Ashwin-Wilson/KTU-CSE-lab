@@ -128,7 +128,7 @@ void main(){
 	
 	
 	for(int k=0; k<slen;k++){
-		printf("\n%s\t%s", st[k].symbol, st[k].saddr);
+		fprintf(fp4 ,"%s\t%s\n", st[k].symbol, st[k].saddr);
 	}
 	
 	fclose(fp1);
