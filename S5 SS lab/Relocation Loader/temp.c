@@ -93,7 +93,7 @@ void main(){
 		
 			if(line[0] == 'T'){
 				strslice(start, line, 2);
-				straddr = strtol(start,NULL,16) ;
+				straddr = strtol(start,NULL,16);
 				straddr += raddr;
 				strslice(bitmask, line, 12);
 				binconvert(bin, bitmask);
