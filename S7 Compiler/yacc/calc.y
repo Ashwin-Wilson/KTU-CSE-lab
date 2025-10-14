@@ -1,33 +1,40 @@
 %{
-#include<stdio.h>
-int flag=0;
+	#include <stdio.h>
+	int valid = 1;
 %}
 %token NUMBER
 %left '+''-'
 %left '*''/''%'
 %left '('')'
+
 %%
-ArithmeticExpression: E{
-printf("\nResult=%d\n",$$);
-return 0;
-};
-E:E'+'E{$$=$1+$3;}
-|E'-'E {$$=$1-$3;}
-|E'*'E {$$=$1*$3;}j
-|E'/'E {$$=$1/$3;}
-|E'%'E {$$=$1%$3;}
-|NUMBER {$$=$1;}
-;
-%%
-void main()
-{
-printf("\nEnter any arithmetic expression:\n");
-yyparse();
-if(flag==0)
-printf("\nEntered arithmetic expression is valid\n\n");
+
+ArithemeticExpression : E {
+	printf("Result: %d\n", $$);
+	return 0;
 }
-void yyerror()
-{
-printf("\nEntered arithmetic expression is invalid\n\n");
-flag=1;
-}   
+
+E : E'+'E {$$=$1+$3;} |
+	E'-'E {$$=$1-$3;} |
+	E'*'E {$$=$1*$3;} |
+	E'/'E {$$=$1/$3;} |
+	E'%'E {$$=$1%$3;} |
+	NUMBER {$$=$1}
+;
+
+%%
+
+int yyerror(){
+	printf("Invalid\n");
+	valid = 0;
+	return 0;
+}
+
+int main(){
+	printf("Enter an expression: ");
+	yyparse();
+	if(valid){
+		printf("Valid\n");
+	}
+	return 0;
+}

@@ -1,27 +1,27 @@
 %{
-#include<stdio.h>
-int valid=1;
+	#include <stdio.h>
+	int valid = 1;
 %}
-%token digit letter
+%token letter digit
+
 %%
+
 start : letter s
-s : letter s
-| digit s
-|
-;
+s : letter s | digit s | ;
+
 %%
-int yyerror()
-{
-printf("\n It is not a valid variable\n");
-valid=0;
-return 0;
+
+int yyerror(){
+	printf("Invalid\n");
+	valid = 0;
+	return 0;
 }
-int main()
-{
-printf("\nEnter a variable name\n");
-yyparse();
-if(valid)
-{
-printf("\n It is a valid variable\n");
-}
+
+int main(){
+	printf("Enter a string: ");
+	yyparse();
+	if(valid){
+		printf("Valid\n");
+	}
+	return 0;
 }

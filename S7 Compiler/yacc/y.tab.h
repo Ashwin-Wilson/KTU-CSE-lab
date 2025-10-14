@@ -186,8 +186,8 @@ typedef
 
 
  #line 169 "/usr/share/bison++/bison.h"
-#define	digit	258
-#define	letter	259
+#define	ID	258
+#define	NUMBER	259
 
 
 #line 169 "/usr/share/bison++/bison.h"
@@ -236,8 +236,8 @@ public:
   /* static const int token ... */
   
  #line 212 "/usr/share/bison++/bison.h"
-static const int digit;
-static const int letter;
+static const int ID;
+static const int NUMBER;
 
 
 #line 212 "/usr/share/bison++/bison.h"
@@ -246,8 +246,8 @@ static const int letter;
   enum YY_parse_ENUM_TOKEN { YY_parse_NULL_TOKEN=0
   
  #line 215 "/usr/share/bison++/bison.h"
-	,digit=258
-	,letter=259
+	,ID=258
+	,NUMBER=259
 
 
 #line 215 "/usr/share/bison++/bison.h"
