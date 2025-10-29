@@ -16,7 +16,7 @@ void main(){
 	y.sin_family=AF_INET;
 	y.sin_port=htons(PORT);
 	y.sin_addr.s_addr=htonl(INADDR_ANY);
-	printf("connecting....\n");
+	printf("connecting....\n");hi
 	while(1){
 		printf("msg to be send :");
 		scanf("%s",buf);
